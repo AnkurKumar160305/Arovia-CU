@@ -4,14 +4,18 @@ import { useLanguage } from '../context/LanguageContext';
 import AuthModal from './Auth/AuthModal';
 import DiseaseRadarModal from './DiseaseRadar/DiseaseRadarModal';
 import EmergencySOSModal from './Emergency/EmergencySOSModal';
+import EmergencyIncidentReport from './Emergency/EmergencyIncidentReport';
 import MedicinesModal from './Medicines/MedicinesModal';
+import VerifyMedicine from './Medicine/VerifyMedicine';
 
 function Header({ navActive, setNavActive }) {
   const [headerActive, setHeaderActive] = useState(false);
   const [authModalOpen, setAuthModalOpen] = useState(false);
   const [diseaseRadarOpen, setDiseaseRadarOpen] = useState(false);
   const [emergencySOSOpen, setEmergencySOSOpen] = useState(false);
+  const [emergencyReportOpen, setEmergencyReportOpen] = useState(false);
   const [medicinesOpen, setMedicinesOpen] = useState(false);
+  const [verifyMedicineOpen, setVerifyMedicineOpen] = useState(false);
   const { user, logout } = useAuth();
   const { t } = useLanguage();
 
@@ -42,6 +46,14 @@ function Header({ navActive, setNavActive }) {
 
   const handleMedicinesClick = () => {
     setMedicinesOpen(true);
+  };
+
+  const handleEmergencyReportClick = () => {
+    setEmergencyReportOpen(true);
+  };
+
+  const handleVerifyMedicineClick = () => {
+    setVerifyMedicineOpen(true);
   };
 
   const handleAuthClick = () => {
@@ -80,7 +92,7 @@ function Header({ navActive, setNavActive }) {
               <a href="#" className="navbar-link title-md">{t('medicines_products')}</a>
             </li>
             <li className="navbar-item">
-              <a href="#" className="navbar-link title-md">{t('verify_medicine')}</a>
+              <a href="#" className="navbar-link title-md" onClick={(e) => { e.preventDefault(); handleVerifyMedicineClick(); }}>{t('verify_medicine')}</a>
             </li>
             <li className="navbar-item">
               <a href="#" className="navbar-link title-md" target="_blank">{t('contact')}</a>
@@ -116,13 +128,22 @@ function Header({ navActive, setNavActive }) {
           </ul>
         </nav>
 
-        <button 
-          className="emergency-sos-btn" 
+        <button
+          className="emergency-sos-btn"
           onClick={handleEmergencySOSClick}
           title="Emergency SOS - One-tap help"
         >
           <ion-icon name="medical-outline"></ion-icon>
           <span>SOS</span>
+        </button>
+
+        <button
+          className="emergency-report-btn"
+          onClick={handleEmergencyReportClick}
+          title="Report Emergency Incident"
+        >
+          <ion-icon name="warning-outline"></ion-icon>
+          <span>Report</span>
         </button>
 
         <button 
@@ -183,9 +204,19 @@ function Header({ navActive, setNavActive }) {
         onClose={() => setEmergencySOSOpen(false)} 
       />
       
-      <MedicinesModal 
-        isOpen={medicinesOpen} 
-        onClose={() => setMedicinesOpen(false)} 
+      <MedicinesModal
+        isOpen={medicinesOpen}
+        onClose={() => setMedicinesOpen(false)}
+      />
+
+      <EmergencyIncidentReport
+        isOpen={emergencyReportOpen}
+        onClose={() => setEmergencyReportOpen(false)}
+      />
+
+      <VerifyMedicine
+        isOpen={verifyMedicineOpen}
+        onClose={() => setVerifyMedicineOpen(false)}
       />
     </>
   );

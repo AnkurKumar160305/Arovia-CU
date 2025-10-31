@@ -13,7 +13,7 @@ import Footer from './components/Footer';
 import BackToTop from './components/BackToTop';
 import LocationModal from './components/Modals/LocationModal';
 import LanguageModal from './components/Modals/LanguageModal';
-import HealthcareTriageBot from './components/ChatBot/HealthcareTriageBot';
+import DadiChatBot from './components/ChatBot/DadiChatBot';
 import UserDashboard from './components/Dashboard/UserDashboard';
 import DoctorDashboard from './components/Dashboard/DoctorDashboard';
 import AdminDashboard from './components/Dashboard/AdminDashboard';
@@ -96,7 +96,7 @@ function HomePage() {
       <Footer />
       <BackToTop />
       
-      <HealthcareTriageBot showOnHomepage={true} />
+      <DadiChatBot showOnHomepage={true} />
       
       <LocationModal 
         isOpen={locationModalOpen} 

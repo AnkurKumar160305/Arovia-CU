@@ -1,7 +1,7 @@
 import React from 'react';
 import { useAuth } from '../../context/AuthContext';
 import { useLanguage } from '../../context/LanguageContext';
-import HealthcareTriageBot from '../ChatBot/HealthcareTriageBot';
+import DadiChatBot from '../ChatBot/DadiChatBot';
 import './Dashboard.css';
 
 function DoctorDashboard() {
@@ -84,7 +84,7 @@ function DoctorDashboard() {
           </div>
         </div>
         
-        <HealthcareTriageBot />
+        <DadiChatBot />
       </div>
     </div>
   );
