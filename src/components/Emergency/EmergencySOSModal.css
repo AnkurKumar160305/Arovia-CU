@@ -1,0 +1,338 @@
+.emergency-sos-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.9);
+  z-index: 1000;
+  overflow-y: auto;
+  padding: 20px;
+}
+
+.emergency-sos-modal {
+  max-width: 600px;
+  margin: 0 auto;
+  background: white;
+  border-radius: 20px;
+  min-height: calc(100vh - 40px);
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  animation: emergencySlideIn 0.3s ease-out;
+}
+
+@keyframes emergencySlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-30px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.emergency-sos-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 32px;
+  background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+  color: white;
+  border-radius: 20px 20px 0 0;
+}
+
+.emergency-header-content {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.emergency-header-icon {
+  width: 60px;
+  height: 60px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+  animation: emergency-pulse 1.5s infinite;
+}
+
+@keyframes emergency-pulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.4);
+  }
+  50% {
+    transform: scale(1.1);
+    box-shadow: 0 0 0 10px rgba(255, 255, 255, 0);
+  }
+}
+
+.emergency-sos-header h3 {
+  margin: 0;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.emergency-sos-header p {
+  margin: 4px 0 0;
+  opacity: 0.9;
+  font-size: 1rem;
+}
+
+.close-emergency-btn {
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  color: white;
+  font-size: 2rem;
+  padding: 10px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.close-emergency-btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.emergency-content {
+  flex: 1;
+  padding: 32px;
+}
+
+.location-status {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #fef3c7;
+  padding: 16px 20px;
+  border-radius: 12px;
+  margin-bottom: 32px;
+  color: #92400e;
+  font-weight: 600;
+}
+
+.location-status.success {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.location-status ion-icon {
+  font-size: 1.5rem;
+}
+
+.emergency-actions {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 24px;
+  margin-bottom: 32px;
+}
+
+.emergency-action-card {
+  background: white;
+  border: 3px solid #e5e7eb;
+  border-radius: 16px;
+  padding: 24px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.emergency-action-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #ef4444, #dc2626);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.emergency-action-card:hover::before {
+  transform: scaleX(1);
+}
+
+.emergency-action-card:hover {
+  border-color: #ef4444;
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(239, 68, 68, 0.2);
+}
+
+.emergency-action-icon {
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(135deg, #fef2f2 0%, #fee2e2 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+  font-size: 2.5rem;
+  color: #ef4444;
+}
+
+.emergency-action-card h4 {
+  color: #1f2937;
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.emergency-action-card p {
+  color: #6b7280;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.emergency-contacts {
+  background: #f9fafb;
+  border-radius: 16px;
+  padding: 24px;
+  margin-bottom: 24px;
+}
+
+.emergency-contacts h4 {
+  color: #1f2937;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.emergency-contacts h4 ion-icon {
+  color: #ef4444;
+  font-size: 1.8rem;
+}
+
+.contacts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+}
+
+.contact-item {
+  background: white;
+  border: 2px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.contact-item:hover {
+  border-color: #ef4444;
+  background: #fef2f2;
+}
+
+.contact-icon {
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+
+.contact-info h5 {
+  color: #1f2937;
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.contact-info p {
+  color: #6b7280;
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+.emergency-disclaimer {
+  background: #fef3c7;
+  border-left: 4px solid #f59e0b;
+  padding: 16px 20px;
+  border-radius: 8px;
+  margin-top: 24px;
+}
+
+.emergency-disclaimer p {
+  color: #92400e;
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.emergency-disclaimer strong {
+  color: #78350f;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .emergency-sos-overlay {
+    padding: 10px;
+  }
+  
+  .emergency-sos-modal {
+    min-height: calc(100vh - 20px);
+  }
+  
+  .emergency-sos-header,
+  .emergency-content {
+    padding: 20px;
+  }
+  
+  .emergency-header-content {
+    gap: 12px;
+  }
+  
+  .emergency-header-icon {
+    width: 50px;
+    height: 50px;
+    font-size: 2rem;
+  }
+  
+  .emergency-sos-header h3 {
+    font-size: 1.6rem;
+  }
+  
+  .emergency-actions {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  
+  .contacts-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .emergency-action-card {
+    padding: 20px 16px;
+  }
+  
+  .emergency-action-icon {
+    width: 60px;
+    height: 60px;
+    font-size: 2rem;
+  }
+  
+  .emergency-action-card h4 {
+    font-size: 1.2rem;
+  }
+}

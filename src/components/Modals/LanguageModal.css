@@ -1,0 +1,104 @@
+.language-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 20px;
+}
+
+.language-modal {
+  background: white;
+  border-radius: 16px;
+  width: 100%;
+  max-width: 350px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  animation: modalSlideIn 0.3s ease-out;
+  overflow: hidden;
+}
+
+.language-modal-header {
+  background: linear-gradient(135deg, var(--verdigris), var(--midnight-green));
+  color: white;
+  padding: 20px 24px;
+  text-align: center;
+}
+
+.language-modal-header h3 {
+  margin: 0;
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+.language-modal-content {
+  padding: 32px 24px;
+  text-align: center;
+}
+
+.language-modal-content p {
+  color: var(--midnight-green);
+  margin-bottom: 24px;
+  line-height: 1.6;
+}
+
+.language-options {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.language-option {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 20px;
+  border: 2px solid var(--alice-blue);
+  border-radius: 12px;
+  background: white;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-align: left;
+}
+
+.language-option:hover {
+  border-color: var(--verdigris);
+  background-color: var(--alice-blue);
+}
+
+.language-option.active {
+  border-color: var(--verdigris);
+  background-color: var(--verdigris);
+  color: white;
+}
+
+.language-flag {
+  font-size: 2rem;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+}
+
+.language-option.active .language-flag {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.language-option span {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+@media (max-width: 480px) {
+  .language-modal {
+    margin: 10px;
+    max-width: none;
+  }
+}
